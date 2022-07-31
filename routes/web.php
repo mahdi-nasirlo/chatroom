@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Room\Index;
+use App\Http\Livewire\Room\SingleRoom;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,5 +24,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/rooms', Index::class)->middleware('auth');
+Route::get('/room/{room:slug}', SingleRoom::class)->middleware('auth')->name('single.room');
+
 
 require __DIR__ . '/auth.php';

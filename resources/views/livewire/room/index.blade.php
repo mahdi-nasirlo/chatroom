@@ -8,11 +8,11 @@
 
         <div class="w-1/2 bg-white rounded-lg shadow-md p-6">
             <livewire:room.create-room>
-                <div>
-                    @foreach ($rooms as $room)
-                        <p class="underline text-right">{{ $room->name }}</p>
-                    @endforeach
-                </div>
+                @foreach ($rooms as $room)
+                    <div>
+                        <a href="{{ $room->link() }}" class="underline w-full text-right block">{{ $room->name }}</a>
+                    </div>
+                @endforeach
         </div>
     </div>
 </div>
