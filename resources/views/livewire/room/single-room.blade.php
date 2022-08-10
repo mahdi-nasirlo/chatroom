@@ -203,40 +203,58 @@
 
                                 @if ($messages->count() > 0)
                                     @foreach ($messages as $message)
-                                        <div class="flex justify-center mb-2">
-                                            <div class="rounded py-2 px-4" style="background-color: #DDECF2">
-                                                <p class="text-sm uppercase">
-                                                    February 20, 2018
-                                                </p>
+                                        @if ($message->user->id == auth()->user()->id)
+                                            <div class="flex justify-end mb-2">
+                                                <div class="rounded py-2 px-3" style="background-color: #E2F7CB">
+                                                    <p class="text-sm mt-1">
+                                                        {{ $message->message }}
+                                                    </p>
+                                                    <p class="text-right text-xs text-grey-dark mt-1">
+                                                        {{ $message->created_at }} pm
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @else
+                                            <div class="flex mb-2">
+                                                <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
+                                                    <p class="text-sm text-orange">
+                                                        Harrison Ford
+                                                    </p>
+                                                    <p class="text-sm mt-1">
+                                                        Again?
+                                                    </p>
+                                                    <p class="text-right text-xs text-grey-dark mt-1">
+                                                        12:45 pm
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        @endif
                                     @endforeach
                                 @else
-                                    <div class="w-full flex justify-center">
+                                    <div class="w-full flex justify-center mb-3">
                                         <span class="rounded-3xl bg-gray-400 text-white p-2">
                                             گروه <span class="underline px-1"> {{ $room->name }} </span>ایجاد شد
                                         </span>
                                     </div>
+                                    <div class="flex justify-center mb-2">
+                                        <div class="rounded py-2 px-4" style="background-color: #DDECF2">
+                                            <p class="text-sm uppercase">
+                                                February 20, 2018
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex justify-center mb-4">
+                                        <div class="rounded py-2 px-4" style="background-color: #FCF4CB">
+                                            <p class="text-xs">
+                                                Messages to this chat and calls are now secured with end-to-end
+                                                encryption.
+                                                Tap for more info.
+                                            </p>
+                                        </div>
+                                    </div>
                                 @endif
-
-                                {{-- <div class="flex justify-center mb-2">
-                                    <div class="rounded py-2 px-4" style="background-color: #DDECF2">
-                                        <p class="text-sm uppercase">
-                                            February 20, 2018
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="flex justify-center mb-4">
-                                    <div class="rounded py-2 px-4" style="background-color: #FCF4CB">
-                                        <p class="text-xs">
-                                            Messages to this chat and calls are now secured with end-to-end encryption.
-                                            Tap for more info.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="flex mb-2">
+                                {{-- <div class="flex mb-2">
                                     <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
                                         <p class="text-sm text-teal">
                                             Sylverter Stallone
@@ -317,16 +335,7 @@
                                     </div>
                                 </div>
 
-                                <div class="flex justify-end mb-2">
-                                    <div class="rounded py-2 px-3" style="background-color: #E2F7CB">
-                                        <p class="text-sm mt-1">
-                                            Count me in
-                                        </p>
-                                        <p class="text-right text-xs text-grey-dark mt-1">
-                                            12:45 pm
-                                        </p>
-                                    </div>
-                                </div>
+                                
 
                                 <div class="flex mb-2">
                                     <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
@@ -355,20 +364,9 @@
                                     </path>
                                 </svg>
                             </div>
-                            <div class="flex-1 mx-4">
-                                <input class="w-full border rounded px-2 py-2" type="text" />
-                            </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-                                    height="24">
-                                    <path fill="#263238" fill-opacity=".45"
-                                        d="M11.999 14.942c2.001 0 3.531-1.53 3.531-3.531V4.35c0-2.001-1.53-3.531-3.531-3.531S8.469 2.35 8.469 4.35v7.061c0 2.001 1.53 3.531 3.53 3.531zm6.238-3.53c0 3.531-2.942 6.002-6.237 6.002s-6.237-2.471-6.237-6.002H3.761c0 4.001 3.178 7.297 7.061 7.885v3.884h2.354v-3.884c3.884-.588 7.061-3.884 7.061-7.885h-2z">
-                                    </path>
-                                </svg>
-                            </div>
+                            <livewire:room.single-room-create :roomId="$room->id">
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -9,6 +9,8 @@ class SingleRoom extends Component
 {
     public Room $room;
 
+    protected $listeners = ['room.add.message' => '$refresh'];
+
     public function render()
     {
         $messages = $this->room->messages()->with('user')->latest()->get();
