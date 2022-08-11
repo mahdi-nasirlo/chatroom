@@ -13,9 +13,9 @@ class Index extends Component
         'echo-private:room.added,RoomAdded' => '$refresh',
     ];
 
-    public function deleteRoom($room)
+    public function deleteRoom(Room $room)
     {
-        Room::where('id', $room['id'])->first()->delete();
+        $room->delete();
         broadcast(new RoomAdded())->toOthers();
     }
 

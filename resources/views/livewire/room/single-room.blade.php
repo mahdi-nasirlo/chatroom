@@ -221,7 +221,7 @@
                                                         Harrison Ford
                                                     </p>
                                                     <p class="text-sm mt-1">
-                                                        Again?
+                                                        {{ $message->message }}
                                                     </p>
                                                     <p class="text-right text-xs text-grey-dark mt-1">
                                                         12:45 pm

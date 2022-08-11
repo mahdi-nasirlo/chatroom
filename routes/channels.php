@@ -23,3 +23,9 @@ Broadcast::channel('room.added', function ($user) {
 
     return auth()->user();
 });
+
+Broadcast::channel('message.added.{room}', function ($user) {
+    // return (int) $user->id === (int) $id;
+
+    return auth()->user();
+});

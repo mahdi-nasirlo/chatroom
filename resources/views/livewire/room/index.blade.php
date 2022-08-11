@@ -6,7 +6,7 @@
     </div>
     <div class="flex justify-center my-2 mx-4 md:mx-0">
 
-        <div class="w-1/2 bg-white rounded-lg shadow-md p-6">
+        <div class="w-full md:w-1/2 bg-white rounded-lg shadow-md p-6">
             <livewire:room.create-room>
                 @foreach ($rooms as $room)
                     <div class="flex flex-row-reverse py-1 px-2 my-2 bg-slate-100 rounded-md">
