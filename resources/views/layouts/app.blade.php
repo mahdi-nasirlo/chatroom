@@ -36,6 +36,7 @@
         </main>
     </div>
     @livewireScripts
+    @vite(['resources/js/bootstrap.js', 'resources/js/bootstrap.js'])
 </body>
 
 </html>
